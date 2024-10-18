@@ -5,7 +5,7 @@
 ### build
 
 clone this repository:
-``` git clone url ``` 
+``` git clone https://github.com/nyangkosense/gfetch ``` 
 
 ``` cd gfetch ```
 and
