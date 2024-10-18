@@ -3,9 +3,6 @@ package main
 import (
 	"fmt"
 	"os"
-	"os/exec"
-	"regexp"
-	"strconv"
 	"strings"
 )
 
@@ -73,36 +70,4 @@ func DisplayColorBlocks() string {
 		result.WriteString(color.Background("  ") + Reset + " ")
 	}
 	return strings.TrimRight(result.String(), " ")
-}
-
-func getTerminalWidth() int {
-	cmd := exec.Command("tput", "cols")
-	cmd.Stdin = os.Stdin
-	output, err := cmd.Output()
-	if err != nil {
-		return 80 // Default width if unable to determine
-	}
-	width, err := strconv.Atoi(strings.TrimSpace(string(output)))
-	if err != nil {
-		return 80
-	}
-	return width
-}
-
-func stripANSI(str string) string {
-	ansi := regexp.MustCompile(`\x1b\[[0-9;]*[mK]`)
-	return ansi.ReplaceAllString(str, "")
-}
-
-func extractColorCodes(str string) []string {
-	ansi := regexp.MustCompile(`\x1b\[[0-9;]*[mK]`)
-	return ansi.FindAllString(str, -1)
-}
-
-func reapplyColorCodes(str string, codes []string) string {
-	result := strings.Join(codes, "") + str
-	if len(codes) > 0 {
-		result += Reset // Make sure to reset the color at the end
-	}
-	return result
 }
