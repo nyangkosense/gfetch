@@ -26,6 +26,10 @@ make && make install
 ## Usage
 
 <p align="center">
+![image](https://github.com/user-attachments/assets/ee79c631-e047-406c-9750-157a15e7f4ee)
+</p>
+
+<p align="center">
   <img src="https://github.com/user-attachments/assets/1b958549-0ff7-49de-91cf-6e4d10087052" alt="gfetch screenshot">
 </p>
 
