@@ -6,7 +6,11 @@
 
 ## Build
 
-Install golang. 
+Install golang:
+
+```
+sudo apt install golang
+```
 
 Clone this repository:
 
