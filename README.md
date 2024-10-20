@@ -1,7 +1,8 @@
 # gfetch - a tiny fetch in Go
 
+
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/856d518f-848c-459d-b082-9524cb9fa1f3" alt="gfetch demo">
+ <img src="https://github.com/user-attachments/assets/ab621b37-79f5-47bc-8df4-ea307bb2b4c6" alt="gfetch screenshot1">
 </p>
 
 ## Build
@@ -29,14 +30,6 @@ make && make install
 
 ## Usage
 
-<p align="center">
- <img src="https://github.com/user-attachments/assets/ee79c631-e047-406c-9750-157a15e7f4ee" alt="gfetch screenshot1">
-</p>
-
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/1b958549-0ff7-49de-91cf-6e4d10087052" alt="gfetch screenshot">
-</p>
-
 There are 2 parameters:
 
 - Display more info: `--full`
@@ -47,3 +40,7 @@ Example:
 ```bash
 gfetch --full --logo debian
 ```
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/856d518f-848c-459d-b082-9524cb9fa1f3" alt="gfetch demo">
+</p>
