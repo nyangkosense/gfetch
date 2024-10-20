@@ -2,19 +2,15 @@ package main
 
 import (
 	"flag"
-)
-
-var (
-	logoFlag string
-	fullFlag bool
+	"gfetch/render"
 )
 
 func init() {
-	flag.StringVar(&logoFlag, "logo", "", "Specify the logo to display (e.g., 'arch', 'debian', 'ubuntu')")
-	flag.BoolVar(&fullFlag, "full", false, "Display full system information")
+	flag.StringVar(&render.LogoFlag, "logo", "", "Specify the logo to display (e.g., 'arch', 'debian', 'ubuntu')")
+	flag.BoolVar(&render.FullFlag, "full", false, "Display full system information")
 }
 
 func main() {
 	flag.Parse()
-	displayInfo()
+	render.DisplayInfo()
 }

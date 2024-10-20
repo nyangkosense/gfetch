@@ -1,13 +1,12 @@
-package main
+package art
 
 import (
 	"strings"
 
 	"github.com/shirou/gopsutil/v3/host"
-
 )
 
-var asciiArts = map[string][]string{
+var AsciiArts = map[string][]string{
 	"alpine": {
 		"   /\\ /\\",
 		"  /./ \\  \\",
@@ -204,27 +203,27 @@ var asciiArts = map[string][]string{
 	},
 }
 
-func getSpecificASCIIArt(distro string) []string {
+func GetSpecificASCIIArt(distro string) []string {
 	lowercaseDistro := strings.ToLower(distro)
-	
-	if art, ok := asciiArts[lowercaseDistro]; ok {
+
+	if art, ok := AsciiArts[lowercaseDistro]; ok {
 		return art
 	}
-	
-	for key, art := range asciiArts {
+
+	for key, art := range AsciiArts {
 		if strings.Contains(lowercaseDistro, key) || strings.Contains(key, lowercaseDistro) {
 			return art
 		}
 	}
-	
-	return asciiArts["linux"]
+
+	return AsciiArts["linux"]
 }
 
-func getASCIIArt() []string {
+func GetASCIIArt() []string {
 	hostInfo, err := host.Info()
 	if err != nil {
 
-		return asciiArts["linux"]
+		return AsciiArts["linux"]
 
 	}
 
@@ -233,6 +232,6 @@ func getASCIIArt() []string {
 		osName = strings.ToLower(hostInfo.PlatformFamily)
 	}
 
-	return getSpecificASCIIArt(osName)
-	
+	return GetSpecificASCIIArt(osName)
+
 }

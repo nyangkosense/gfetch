@@ -1,4 +1,4 @@
-package main
+package format
 
 import (
 	"fmt"
@@ -6,7 +6,7 @@ import (
 	"time"
 )
 
-func formatUptime(uptime uint64) string {
+func FormatUptime(uptime uint64) string {
 	duration := time.Duration(uptime) * time.Second
 	days := int(duration.Hours() / 24)
 	hours := int(duration.Hours()) % 24
@@ -26,7 +26,7 @@ func formatUptime(uptime uint64) string {
 	return strings.Join(parts, ", ")
 }
 
-func formatBytes(bytes uint64) string {
+func FormatBytes(bytes uint64) string {
 	const unit = 1024
 	if bytes < unit {
 		return fmt.Sprintf("%d B", bytes)

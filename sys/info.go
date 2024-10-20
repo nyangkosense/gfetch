@@ -1,7 +1,8 @@
-package main
+package sys
 
 import (
 	"fmt"
+	"gfetch/format"
 	"os"
 	"os/exec"
 	"runtime"
@@ -10,19 +11,19 @@ import (
 	"github.com/shirou/gopsutil/v3/disk"
 )
 
-func getWindowManagerAndDE() (string, string) {
+func GetWindowManagerAndDE() (string, string) {
 	display := os.Getenv("DISPLAY")
 	if display == "" {
 		return "N/A", "N/A"
 	}
 
-	wm := getWindowManager()
-	de := getDesktopEnvironment()
+	wm := GetWindowManager()
+	de := GetDesktopEnvironment()
 
 	return wm, de
 }
 
-func getWindowManager() string {
+func GetWindowManager() string {
 	// Try to get window manager using xprop
 	cmd := exec.Command("xprop", "-root", "-notype", "_NET_SUPPORTING_WM_CHECK")
 	output, err := cmd.Output()
@@ -73,7 +74,7 @@ func getWindowManager() string {
 	return "Unknown"
 }
 
-func getDesktopEnvironment() string {
+func GetDesktopEnvironment() string {
 	de := os.Getenv("XDG_CURRENT_DESKTOP")
 	if de == "" {
 		de = os.Getenv("DESKTOP_SESSION")
@@ -84,7 +85,7 @@ func getDesktopEnvironment() string {
 	return de
 }
 
-func getPackageCount(osName string) string {
+func GetPackageCount(osName string) string {
 	var cmd *exec.Cmd
 	switch strings.ToLower(osName) {
 	case "ubuntu", "debian", "linux mint":
@@ -108,7 +109,7 @@ func getPackageCount(osName string) string {
 	return fmt.Sprintf("%d", count)
 }
 
-func getGPUInfo() string {
+func GetGPUInfo() string {
 	if runtime.GOOS == "linux" {
 		cmd := exec.Command("lspci", "-v")
 		output, err := cmd.Output()
@@ -127,7 +128,7 @@ func getGPUInfo() string {
 	return "Unknown"
 }
 
-func getDiskInfo() string {
+func GetDiskInfo() string {
 	partitions, err := disk.Partitions(false)
 	if err != nil || len(partitions) == 0 {
 		return "Unknown"
@@ -138,5 +139,5 @@ func getDiskInfo() string {
 		return "Unknown"
 	}
 
-	return fmt.Sprintf("%s / %s", formatBytes(usage.Used), formatBytes(usage.Total))
+	return fmt.Sprintf("%s / %s", format.FormatBytes(usage.Used), format.FormatBytes(usage.Total))
 }
