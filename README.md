@@ -1,26 +1,41 @@
-## gfetch - a tiny fetch in Go
+# gfetch - a tiny fetch in Go
 
-![2024-10-19 10-44-01](https://github.com/user-attachments/assets/856d518f-848c-459d-b082-9524cb9fa1f3)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/856d518f-848c-459d-b082-9524cb9fa1f3" alt="gfetch demo">
+</p>
 
-### build
+## Build
 
-clone this repository:
-``` git clone https://github.com/nyangkosense/gfetch ``` 
+Install golang. 
 
-``` cd gfetch ```
-and
-``` make && make install ```
+Clone this repository:
+
+```bash
+git clone https://github.com/nyangkosense/gfetch
+cd gfetch
+```
+
+Then build and install:
+
+```bash
+make && make install
+```
 
 ---
 
-### usage
+## Usage
 
-![screenshot](https://github.com/user-attachments/assets/1b958549-0ff7-49de-91cf-6e4d10087052)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/1b958549-0ff7-49de-91cf-6e4d10087052" alt="gfetch screenshot">
+</p>
 
-there are 2 params:
+There are 2 parameters:
 
-Display more info: ``` --full ```
+- Display more info: `--full`
+- Select logo: `--logo debian`
 
-Select logo: ``` --logo debian ```
+Example:
 
-example: ``` gfetch --full --logo debian ```
+```bash
+gfetch --full --logo debian
+```
