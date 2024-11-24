@@ -6,7 +6,7 @@ BINARY_NAME=gfetch
 
 BUILD_DIR=build
 
-INSTALL_DIR=$(HOME)/.local/bin
+INSTALL_DIR=/usr/bin
 
 all: build
 

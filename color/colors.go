@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os"
 	"strings"
+	"regexp"
 )
 
 type Color struct {
@@ -70,4 +71,9 @@ func DisplayColorBlocks() string {
 		result.WriteString(color.Background("  ") + Reset + " ")
 	}
 	return strings.TrimRight(result.String(), " ")
+}
+
+func StripANSI(str string) string {
+    ansi := regexp.MustCompile(`\x1b\[[0-9;]*[mK]`)
+    return ansi.ReplaceAllString(str, "")
 }
