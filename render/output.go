@@ -41,6 +41,7 @@ func DisplayInfo() {
 	infoLines := []string{
 	color.ColoredLabel("host", hostInfo.Hostname),
 	color.ColoredLabel("os", fmt.Sprintf("%s %s", osName, hostInfo.PlatformVersion)),
+	color.ColoredLabel("wm", wm),
 	color.ColoredLabel("packages", sys.GetPackageCount(osName)),
         color.ColoredLabel("kernel", hostInfo.KernelVersion),
         color.ColoredLabel("up", format.FormatUptime(hostInfo.Uptime)),
@@ -51,7 +52,6 @@ func DisplayInfo() {
 		color.ColoredLabel("shell", os.Getenv("SHELL")),
 		color.ColoredLabel("cpu", cpuInfo[0].ModelName),
 		color.ColoredLabel("mem", fmt.Sprintf("%s / %s", format.FormatBytes(memInfo.Used), format.FormatBytes(memInfo.Total))),
-		color.ColoredLabel("wm", wm),
 		color.ColoredLabel("de", de),
 		color.ColoredLabel("gpu", sys.GetGPUInfo()),
 		color.ColoredLabel("disk", sys.GetDiskInfo()),

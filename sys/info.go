@@ -57,8 +57,8 @@ func GetWindowManager() string {
 				return "fvwm"
 			case strings.Contains(process, "dwm"):
 				return "dwm"
-			case strings.Contains(process, "2bwm"):
-				return "2bwm"
+			case strings.Contains(process, "2wm"):
+				return "2wm"
 			case strings.Contains(process, "monsterwm"):
 				return "monsterwm"
 			case strings.Contains(process, "wmaker"):
